@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+GET     /                                       controllers.HomeController.index
+GET     /actionDemo                             controllers.HomeController.actionDemo
+
+# Controller showing how to use dependency injection
+GET     /count                                  controllers.CountController.count
+
+# Controller showing how to write asynchronous code
+GET     /message                                controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
+
+# HTTP Routing example
+GET     /httprouting/exactMatch                 controllers.HttpRoutingSampleController.exactMatch
+GET     /httprouting/dynamic/:id                controllers.HttpRoutingSampleController.dynamicInput(id: Long)
+GET     /httprouting/file/*location             controllers.HttpRoutingSampleController.fetchFile(location)
+GET     /httprouting/restricted/$id<[5-9]+>     controllers.HttpRoutingSampleController.fetchRestrictedId(id: Long)
+GET     /httprouting/fixedparam                 controllers.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
+GET     /httprouting/fetchpage                  controllers.HttpRoutingSampleController.fetchPage(name ?= "home")
+GET     /httprouting/fetchList                  controllers.HttpRoutingSampleController.fetchList(param: Option[String])
