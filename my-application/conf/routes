@@ -21,3 +21,6 @@ GET     /httprouting/restricted/$id<[5-9]+>     controllers.HttpRoutingSampleCon
 GET     /httprouting/fixedparam                 controllers.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
 GET     /httprouting/fetchpage                  controllers.HttpRoutingSampleController.fetchPage(name ?= "home")
 GET     /httprouting/fetchList                  controllers.HttpRoutingSampleController.fetchList(param: Option[String])
+
+
+GET     /todo/list                              controllers.ToDoListController.toDoList
