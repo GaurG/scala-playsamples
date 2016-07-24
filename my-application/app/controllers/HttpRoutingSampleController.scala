@@ -5,7 +5,7 @@ import play.api._
 import play.api.mvc._
 
 @Singleton
-class HttpRoutingSampleController @Inject extends Controller {
+class HttpRoutingSampleController @Inject() extends Controller {
     
     /**
      * Sample URL - http://localhost:9000/exactMatch

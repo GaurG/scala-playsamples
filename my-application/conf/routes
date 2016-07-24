@@ -14,13 +14,15 @@ GET     /message                                controllers.AsyncController.mess
 GET     /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
 
 # HTTP Routing example
-GET     /httprouting/exactMatch                 controllers.HttpRoutingSampleController.exactMatch
-GET     /httprouting/dynamic/:id                controllers.HttpRoutingSampleController.dynamicInput(id: Long)
-GET     /httprouting/file/*location             controllers.HttpRoutingSampleController.fetchFile(location)
-GET     /httprouting/restricted/$id<[5-9]+>     controllers.HttpRoutingSampleController.fetchRestrictedId(id: Long)
-GET     /httprouting/fixedparam                 controllers.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
-GET     /httprouting/fetchpage                  controllers.HttpRoutingSampleController.fetchPage(name ?= "home")
-GET     /httprouting/fetchList                  controllers.HttpRoutingSampleController.fetchList(param: Option[String])
-
+GET     /exactMatch                             controllers.HttpRoutingSampleController.exactMatch
+GET     /dynamic/:id                            controllers.HttpRoutingSampleController.dynamicInput(id: Long)
+GET     /file/*location                         controllers.HttpRoutingSampleController.fetchFile(location)
+GET     /restricted/$id<[5-9]+>                 controllers.HttpRoutingSampleController.fetchRestrictedId(id: Long)
+GET     /fixedparam                             controllers.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
+GET     /fetchpage                              controllers.HttpRoutingSampleController.fetchPage(name ?= "home")
+GET     /fetchList                              controllers.HttpRoutingSampleController.fetchList(param: Option[String])
 
 GET     /todo/list                              controllers.ToDoListController.toDoList
+
+# Content Type Routing
+GET     /contentType/htmlOutput                 controllers.ContentTypeController.htmlContentType
