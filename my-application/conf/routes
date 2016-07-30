@@ -1,28 +1,32 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
-GET     /                                       controllers.HomeController.index
-GET     /actionDemo                             controllers.HomeController.actionDemo
+GET     /                                       				controllers.HomeController.index
+GET     /actionDemo                             				controllers.HomeController.actionDemo
 
 # Controller showing how to use dependency injection
-GET     /count                                  controllers.CountController.count
+GET     /count                                  				controllers.CountController.count
 
 # Controller showing how to write asynchronous code
-GET     /message                                controllers.AsyncController.message
+GET     /message                                				controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file                           				controllers.Assets.versioned(path="/public", file: Asset)
 
-# HTTP Routing example
-GET     /exactMatch                             controllers.HttpRoutingSampleController.exactMatch
-GET     /dynamic/:id                            controllers.HttpRoutingSampleController.dynamicInput(id: Long)
-GET     /file/*location                         controllers.HttpRoutingSampleController.fetchFile(location)
-GET     /restricted/$id<[5-9]+>                 controllers.HttpRoutingSampleController.fetchRestrictedId(id: Long)
-GET     /fixedparam                             controllers.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
-GET     /fetchpage                              controllers.HttpRoutingSampleController.fetchPage(name ?= "home")
-GET     /fetchList                              controllers.HttpRoutingSampleController.fetchList(param: Option[String])
+# controller to show HTTP Routing example
+GET     /httprouting/exactMatch                 				controllers.HttpRoutingSampleController.exactMatch
+GET     /httprouting/dynamic/:id                				controllers.HttpRoutingSampleController.dynamicInput(id: Long)
+GET     /httprouting/file/*location             				controllers.HttpRoutingSampleController.fetchFile(location)
+GET     /httprouting/restricted/$id<[5-9]+>     				controllers.HttpRoutingSampleController.fetchRestrictedId(id: Long)
+GET     /httprouting/fixedparam                 				controllers.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
+GET     /httprouting/fetchpage                  				controllers.HttpRoutingSampleController.fetchPage(name ?= "home")
+GET     /httprouting/fetchList                  				controllers.HttpRoutingSampleController.fetchList(param: Option[String])
 
-GET     /todo/list                              controllers.ToDoListController.toDoList
 
-# Content Type Routing
-GET     /contentType/htmlOutput                 controllers.ContentTypeController.htmlContentType
+# controller to show Content Type Routing example
+GET     /todo/list                              				controllers.ToDoListController.toDoList
+
+# controller to show Content Type Routing example
+GET     /contentType/htmlOutput                					controllers.ContentTypeController.htmlContentType
+GET		/contentType/htmlHeaders								controllers.ContentTypeController.htmlContentSetHeaders
+GET		/contentType/htmlCookies								controllers.ContentTypeController.htmlSetDiscardCookies
