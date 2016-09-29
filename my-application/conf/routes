@@ -14,19 +14,26 @@ GET     /message                                				controllers.AsyncController.
 GET     /assets/*file                           				controllers.Assets.versioned(path="/public", file: Asset)
 
 # controller to show HTTP Routing example
-GET     /httprouting/exactMatch                 				controllers.HttpRoutingSampleController.exactMatch
-GET     /httprouting/dynamic/:id                				controllers.HttpRoutingSampleController.dynamicInput(id: Long)
-GET     /httprouting/file/*location             				controllers.HttpRoutingSampleController.fetchFile(location)
-GET     /httprouting/restricted/$id<[5-9]+>     				controllers.HttpRoutingSampleController.fetchRestrictedId(id: Long)
-GET     /httprouting/fixedparam                 				controllers.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
-GET     /httprouting/fetchpage                  				controllers.HttpRoutingSampleController.fetchPage(name ?= "home")
-GET     /httprouting/fetchList                  				controllers.HttpRoutingSampleController.fetchList(param: Option[String])
+GET     /httprouting/exactMatch                 				controllers.httprouting.HttpRoutingSampleController.exactMatch
+GET     /httprouting/dynamic/:id                				controllers.httprouting.HttpRoutingSampleController.dynamicInput(id: Long)
+GET     /httprouting/file/*location             				controllers.httprouting.HttpRoutingSampleController.fetchFile(location)
+GET     /httprouting/restricted/$id<[5-9]+>     				controllers.httprouting.HttpRoutingSampleController.fetchRestrictedId(id: Long)
+GET     /httprouting/fixedparam                 				controllers.httprouting.HttpRoutingSampleController.fixedStringParam(param = "MyFixedValue")
+GET     /httprouting/fetchpage                  				controllers.httprouting.HttpRoutingSampleController.fetchPage(name ?= "home")
+GET     /httprouting/fetchList                  				controllers.httprouting.HttpRoutingSampleController.fetchList(param: Option[String])
 
 
 # controller to show Content Type Routing example
 GET     /todo/list                              				controllers.ToDoListController.toDoList
 
 # controller to show Content Type Routing example
-GET     /contentType/htmlOutput                					controllers.ContentTypeController.htmlContentType
-GET		/contentType/htmlHeaders								controllers.ContentTypeController.htmlContentSetHeaders
-GET		/contentType/htmlCookies								controllers.ContentTypeController.htmlSetDiscardCookies
+GET     /contentType/htmlOutput                					controllers.httprouting.ContentTypeController.htmlContentType
+GET		/contentType/htmlHeaders								controllers.httprouting.ContentTypeController.htmlContentSetHeaders
+GET		/contentType/htmlCookies								controllers.httprouting.ContentTypeController.htmlSetDiscardCookies
+
+# controller to save data into session and flash scope
+GET		/sessionflash/saveMail/:mail							controllers.httprouting.SessionFlashController.sessionMail(mail)
+GET		/sessionflash/anotherMail/:mail							controllers.httprouting.SessionFlashController.addAnotherSessionMail(mail)
+GET		/sessionflash/removeMail/:mail							controllers.httprouting.SessionFlashController.removeMailFromSession(mail)
+GET		/sessionflash/removeSession								controllers.httprouting.SessionFlashController.removeSession
+GET		/sessionflash/fetchSessionMailId						controllers.httprouting.SessionFlashController.fetchSessionMailId
